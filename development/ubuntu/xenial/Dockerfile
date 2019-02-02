@@ -1,6 +1,8 @@
 FROM ubuntu:xenial
 MAINTAINER Markos Vakondios <mvakondios@gmail.com> Riley Schuit <riley.schuit@gmail.com>
 
+# Mysql server needs: set global log_bin_trust_function_creators=1;
+
 # Resynchronize the package index files
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \

@@ -273,7 +273,7 @@ chk_remote_mysql () {
             echo "   ...not found."
             echo -n " * Attempting to create remote database using provided credentials"
             sed -i "s/PLACEHOLDERNAME/${ZM_DB_NAME}/g" $ZMCREATE
-            mysql -u${ZM_DB_USER} -p${ZM_DB_PASS} -h${ZM_DB_HOST} < $ZMCREATE #> /dev/null 2>&1
+            mysql -u${ZM_DB_USER} -p${ZM_DB_PASS} -h${ZM_DB_HOST} < $ZMCREATE > /dev/null 2>&1
             RETVAL=$?
             if [ "$RETVAL" = "0" ]; then
                 echo "   ...done."
@@ -307,7 +307,7 @@ start_http () {
 # ZoneMinder service management
 start_zoneminder () {
     echo -n " * Starting ZoneMinder video surveillance recorder"
-    $ZMPKG start #> /dev/null 2>&1
+    $ZMPKG start > /dev/null 2>&1
     RETVAL=$?
     if [ "$RETVAL" = "0" ]; then
         echo "   ...done."
@@ -343,7 +343,7 @@ if [ -f /etc/timezone ]; then
     echo "$TZ" > /etc/timezone
 fi
 
-chown -R mysql:mysql /var/lib/mysql/
+#chown -R mysql:mysql /var/lib/mysql/
 # Configure then start Mysql
 if [ "$remoteDB" -eq "1" ]; then
     sed -i -e "s/ZM_DB_NAME=.*$/ZM_DB_NAME=$ZM_DB_NAME/g" $ZMCONF

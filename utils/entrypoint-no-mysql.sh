@@ -8,12 +8,26 @@
 
 if [ -z $ZM_DB_HOST]; then
   $ZM_DB_HOST = "mysql"
-
 fi
 
-$ZM_DB_USER = "zoneminder"
-$ZM_DB_PASS = "zoneminder"
-$ZM_DB_NAME = "zoneminder"
+if [ -z $ZM_DB_USER]; then
+  $ZM_DB_USER = "zoneminder"
+fi
+
+if [ -z $ZM_DB_PASS]; then
+  $ZM_DB_PASS = "zoneminder"
+fi
+
+if [ -z $ZM_DB_NAME]; then
+  $ZM_DB_NAME = "zoneminder"
+fi
+
+
+
+
+
+
+
 
 ###############
 # SUBROUTINES #

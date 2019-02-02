@@ -6,19 +6,19 @@
 # It looks in common places for the files & executables it needs
 # and thus should be compatible with major Linux distros.
 
-if [ -z $ZM_DB_HOST]; then
+if [ -z $ZM_DB_HOST ]; then
   ZM_DB_HOST="mysql"
 fi
 
-if [ -z $ZM_DB_USER]; then
+if [ -z $ZM_DB_USER ]; then
   ZM_DB_USER="zoneminder"
 fi
 
-if [ -z $ZM_DB_PASS]; then
+if [ -z $ZM_DB_PASS ]; then
   ZM_DB_PASS="zoneminder"
 fi
 
-if [ -z $ZM_DB_NAME]; then
+if [ -z $ZM_DB_NAME ]; then
   ZM_DB_NAME="zoneminder"
 fi
 

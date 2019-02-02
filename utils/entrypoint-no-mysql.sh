@@ -180,7 +180,7 @@ mysql_datadir_exists() {
 
 zm_db_exists() {
     if [ "$remoteDB" -eq "1" ]; then
-        mysqlshow -u${ZM_DB_USER} -p${ZM_DB_PASS} -h${ZM_DB_HOST} ${ZM_DB_NAME} > /dev/null 2>&1
+        mysqlshow -u${ZM_DB_USER} -p${ZM_DB_PASS} -h${ZM_DB_HOST} ${ZM_DB_NAME} Config > /dev/null 2>&1
     else
         mysqlshow zm > /dev/null 2>&1
     fi

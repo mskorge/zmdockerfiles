@@ -104,17 +104,17 @@ RUN ./zmlinkcontent.sh
 # Set our volumes before we attempt to configure apache
 VOLUME /var/lib/zoneminder/events /var/lib/mysql /var/log/zm
 
-# Stop Apache and Mysql before we configure them
-RUN service mysql stop && service apache2 stop
+# Stop Apache before we configure them
+RUN service apache2 stop
 
 # Configure Apache
 RUN cp misc/apache.conf /etc/apache2/sites-available/000-default.conf
 RUN echo "ServerName localhost" > /etc/apache2/conf-available/servername.conf && a2enconf -q servername
 RUN a2enmod -q rewrite && a2enmod -q cgi
 
-# Configure mysql
-# No longer needed for zm >= 1.32.0
-#RUN echo "sql_mode=NO_ENGINE_SUBSTITUTION" >> /etc/mysql/mysql.conf.d/mysqld.cnf
+
+
+
 
 # Expose http port
 EXPOSE 80

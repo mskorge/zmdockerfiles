@@ -70,7 +70,7 @@ RUN apt-get update \
     perl-modules \
     libx264-dev \
     mysql-client \
-    mysql-server \
+    #mysql-server \
     php \
     php-cli \
     php-gd \

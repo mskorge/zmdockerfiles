@@ -22,13 +22,6 @@ if [ -z $ZM_DB_NAME]; then
   ZM_DB_NAME="zoneminder"
 fi
 
-
-
-
-
-
-
-
 ###############
 # SUBROUTINES #
 ###############
@@ -37,7 +30,7 @@ fi
 initialize () {
 
     # Check to see if this script has access to all the commands it needs
-    for CMD in cat grep install ln my_print_defaults mysql mysqladmin mysqld_safe mysqlshow sed sleep su tail usermod head file; do
+    for CMD in cat grep install ln mysql mysqladmin mysqlshow sed sleep su tail usermod head file; do
       type $CMD &> /dev/null
 
       if [ $? -ne 0 ]; then

@@ -120,11 +120,11 @@ RUN a2enmod -q rewrite && a2enmod -q cgi
 EXPOSE 80
 
 # Get the entrypoint script and make sure it is executable
-ADD https://raw.githubusercontent.com/ZoneMinder/zmdockerfiles/master/utils/entrypoint.sh /usr/local/bin/
-RUN chmod 755 /usr/local/bin/entrypoint.sh
+ADD https://raw.githubusercontent.com/mskorge/zmdockerfiles/no-mysql-server/utils/entrypoint-no-mysql.sh /usr/local/bin/
+RUN chmod 755 /usr/local/bin/entrypoint-no-mysql.sh
 
 # This is run each time the container is started
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint-no-mysql.sh"]
 
 ################
 # RUN EXAMPLES #

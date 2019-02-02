@@ -93,7 +93,7 @@ RUN git clone --recursive https://github.com/ZoneMinder/ZoneMinder
 WORKDIR /ZoneMinder
 
 # Configure ZoneMinder
-RUN cmake .
+RUN cmake -DZM_DB_NAME=PLACEHOLDERNAME .
 
 # Build & install ZoneMinder
 RUN make && make install

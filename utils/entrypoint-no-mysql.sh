@@ -272,6 +272,7 @@ chk_remote_mysql () {
         else
             echo "   ...not found."
             echo -n " * Attempting to create remote database using provided credentials"
+            sed -i "s/PLACEHOLDERNAME/${ZM_DB_NAME}/g" $ZMCREATE
             mysql -u${ZM_DB_USER} -p${ZM_DB_PASS} -h${ZM_DB_HOST} < $ZMCREATE #> /dev/null 2>&1
             RETVAL=$?
             if [ "$RETVAL" = "0" ]; then

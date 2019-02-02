@@ -102,7 +102,7 @@ RUN make && make install
 RUN ./zmlinkcontent.sh
 
 # Set our volumes before we attempt to configure apache
-VOLUME /var/lib/zoneminder/events /var/lib/mysql /var/log/zm
+VOLUME /var/lib/zoneminder/events /var/log/zm
 
 # Stop Apache before we configure them
 RUN service apache2 stop

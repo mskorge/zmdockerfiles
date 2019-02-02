@@ -6,6 +6,15 @@
 # It looks in common places for the files & executables it needs
 # and thus should be compatible with major Linux distros.
 
+if [ -z $ZM_DB_HOST]; then
+  $ZM_DB_HOST = "mysql"
+
+fi
+
+$ZM_DB_USER = "zoneminder"
+$ZM_DB_PASS = "zoneminder"
+$ZM_DB_NAME = "zoneminder"
+
 ###############
 # SUBROUTINES #
 ###############
@@ -26,12 +35,12 @@ initialize () {
     done
 
     # Look in common places for the mysqld/MariaDB executable
-    for FILE in "/usr/sbin/mysqld" "/usr/libexec/mysqld" "/usr/local/sbin/mysqld" "/usr/local/libexec/mysqld"; do
-        if [ -f $FILE ]; then
-            MYSQLD=$FILE
-            break
-        fi
-    done
+    #for FILE in "/usr/sbin/mysqld" "/usr/libexec/mysqld" "/usr/local/sbin/mysqld" "/usr/local/libexec/mysqld"; do
+    #    if [ -f $FILE ]; then
+    #        MYSQLD=$FILE
+    #        break
+    #    fi
+    #done
 
     # Look in common places for the apache executable commonly called httpd or apache2
     for FILE in "/usr/sbin/httpd" "/usr/sbin/apache2"; do
@@ -74,7 +83,7 @@ initialize () {
         fi
     done
 
-    for FILE in $ZMCONF $ZMPKG $ZMCREATE $PHPINI $HTTPBIN $MYSQLD; do
+    for FILE in $ZMCONF $ZMPKG $ZMCREATE $PHPINI $HTTPBIN; do
         if [ -z $FILE ]; then
             echo
             echo "FATAL: This script was unable to determine one or more critical files. Cannot continue."
@@ -87,7 +96,7 @@ initialize () {
             echo "Path to zm_create.sql: ${ZMCREATE}"
             echo "Path to php.ini: ${PHPINI}"
             echo "Path to Apache executable: ${HTTPBIN}"
-            echo "Path to Mysql executable: ${MYSQLD}"
+            #echo "Path to Mysql executable: ${MYSQLD}"
             echo
             exit 98
         fi

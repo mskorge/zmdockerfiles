@@ -7,19 +7,19 @@
 # and thus should be compatible with major Linux distros.
 
 if [ -z $ZM_DB_HOST]; then
-  $ZM_DB_HOST = "mysql"
+  ZM_DB_HOST="mysql"
 fi
 
 if [ -z $ZM_DB_USER]; then
-  $ZM_DB_USER = "zoneminder"
+  ZM_DB_USER="zoneminder"
 fi
 
 if [ -z $ZM_DB_PASS]; then
-  $ZM_DB_PASS = "zoneminder"
+  ZM_DB_PASS="zoneminder"
 fi
 
 if [ -z $ZM_DB_NAME]; then
-  $ZM_DB_NAME = "zoneminder"
+  ZM_DB_NAME="zoneminder"
 fi
 
 

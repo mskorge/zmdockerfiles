@@ -363,7 +363,8 @@ else
     fi
 fi
 
-chown www-data:www-data /var/lib/zoneminder/events /var/cache/zoneminder
+mkdir /var/cache/zoneminder
+chown -R www-data:www-data /var/lib/zoneminder/events /var/cache/zoneminder
 
 # Ensure we shutdown our services cleanly when we are told to stop
 trap cleanup SIGTERM

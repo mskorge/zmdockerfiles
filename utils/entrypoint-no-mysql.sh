@@ -312,7 +312,7 @@ start_zoneminder () {
     if [ "$RETVAL" = "0" ]; then
         echo "   ...done."
     else
-        echo "   ...failed! ${$RETVAL}"
+        echo "   ...failed!"
     fi
 }
 
